@@ -1,6 +1,6 @@
 <?php
 
-require './functions.php';
+require_once './functions.php';
 
 
 
@@ -22,10 +22,18 @@ require './functions.php';
         <label for="password_length">Lunghezza Password</label>
         <input type="number" name="password_length" id="password_length" placeholder="8">
         <button class="btn btn-primary">Submit</button>
-        <?php echo "<h1>Password generata: " . generatePassword($password_length); ?>
+        
     </form>
 
+<?php
+if (isset($password_length)) {
+    header('Location: ./result.php');
+} elseif ($password_length = "") {
+    return;
+};
 
+
+?>
 
     </div>
     
